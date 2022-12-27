@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Aplicación</title>
+  </head>
+  <body>
+    <label>¡Hola! Por favor ingresa la cantidad de bandejas que necesitas:</label>
+    <br>
+    <input type="number" id="cantidad_huevos">
+    <br>
+    <button onclick="encargar_huevos()">Encargar huevos</button>
+    <br>
+    <label id="mensaje"></label>
+    <br>
+    <button onclick="enviar_whatsapp()">Enviar</button>
+    <script>
+      function encargar_huevos() {
+        // Obtener la cantidad de bandejas de huevos ingresada por el usuario
+        var cantidad = document.getElementById("cantidad_huevos").value;
+      }
+
+      function enviar_whatsapp() {
+        // Obtener la cantidad de bandejas de huevos ingresada por el usuario
+        var cantidad = document.getElementById("cantidad_huevos").value;
+
+        // Verificar si la cantidad es mayor a cero
+        if (cantidad > 0) {
+          // Enviar el mensaje a través de WhatsApp
+          window.open("https://api.whatsapp.com/send?phone=56997322973&text=Hola, ¿cómo estás? Quisiera encargarte " + cantidad + " bandeja/s de huevos");
+        } else {
+          // Mostrar un mensaje de error en la interfaz gráfica de usuario
+          document.getElementById("mensaje").innerHTML = "Por favor ingrese una cantidad válida";
+        }
+      }
+    </script>
+  </body>
+</html>
